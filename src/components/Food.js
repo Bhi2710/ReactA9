@@ -5,7 +5,7 @@ function Food() {
 
     const [query, setQuery] = useState("Paneer");
     const [data, setData] = useState([]);
-    const [setIsClicked] = useState(false);
+    const [isClicked,setIsClicked] = useState(false);
 
     useEffect(() => {
         fetch(`https://api.edamam.com/api/recipes/v2?q=${query}&app_id=ca9a1e0d&app_key=d2c30fc5bd6762dbac5b78b1925d68e1&type=public`).then(
@@ -16,8 +16,8 @@ function Food() {
                 setData(arrayData)
             }
         )
-
-    }, [query])
+        // eslint-disable-next-line
+    }, [isClicked])
 
     return (
         <div className='Main'>
